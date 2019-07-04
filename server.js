@@ -1,8 +1,9 @@
-const Koa        = require('koa');
-const cors       = require('@koa/cors');
-const bodyParser = require('koa-bodyparser');
-const Route      = require('./route-mapping');
-const config     = require('./config');
+const Koa            = require('koa');
+const cors           = require('@koa/cors');
+const bodyParser     = require('koa-bodyparser');
+const Route          = require('./route-mapping');
+const MessageMapping = require('./message.mapping');
+const config         = require('./config');
 (async () => {
     const app   = new Koa();
     const route = Route();
@@ -10,6 +11,7 @@ const config     = require('./config');
     app
         .use(cors({origin: '*'}))
         .use(bodyParser())
+        .use(MessageMapping)
         .use(route.routes())
         .use(route.allowedMethods())
         .listen(config.http.port, (err) => {

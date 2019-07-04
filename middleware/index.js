@@ -1,12 +1,15 @@
+const Message = require('./../messages');
+
 module.exports = {
     Book: {
         create  : async (context, next) => {
-            console.log('create middleware');
-            context.body   = {
-                code   : 'FUCK_VIU',
-                message: 'DONE'
-            };
-            context.status = 201
+            return new Message.MessageCreated({
+                success: true,
+                book   : {
+                    foo: 'bar',
+                    id : Math.random()
+                }
+            });
         },
         validate: async (context, next) => {
             await next();
