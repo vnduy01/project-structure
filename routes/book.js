@@ -6,16 +6,14 @@ module.exports   = {
             method  : 'POST',
             url     : '/books',
             handlers: [
-                Middleware.Book.create,
-                Middleware.Book.validate
+                Middleware.Book.create
             ]
         },
         update: {
             method  : 'put',
             url     : '/books/:id',
             handlers: [
-                Middleware.Book.create,
-                Middleware.Book.validate
+                Middleware.Book.update
             ]
         }
     }

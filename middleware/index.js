@@ -2,7 +2,7 @@ const Message = require('./../messages');
 
 module.exports = {
     Book: {
-        create  : async (context, next) => {
+        create: async (context, next) => {
             return new Message.MessageCreated({
                 success: true,
                 book   : {
@@ -11,8 +11,8 @@ module.exports = {
                 }
             });
         },
-        validate: async (context, next) => {
-            await next();
+        update: async (context, next) => {
+            throw new Message.MessageError('This is error');
         }
     }
 };

@@ -1,11 +1,13 @@
 const Koa            = require('koa');
 const cors           = require('@koa/cors');
 const bodyParser     = require('koa-bodyparser');
-const Route          = require('./route-mapping');
+const Route          = require('./route.mapping');
 const MessageMapping = require('./message.mapping');
 const config         = require('./config');
 (async () => {
-    const app   = new Koa();
+    const app   = new Koa({
+        message: 'adb'
+    });
     const route = Route();
     console.log(route);
     app
