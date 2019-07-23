@@ -4,6 +4,7 @@ const bodyParser     = require('koa-bodyparser');
 const Route          = require('./route.mapping');
 const MessageMapping = require('./message.mapping');
 const config         = require('./config');
+
 (async () => {
     const app   = new Koa({
         message: 'adb'
